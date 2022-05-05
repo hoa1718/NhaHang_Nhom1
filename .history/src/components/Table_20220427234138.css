@@ -1,0 +1,26 @@
+tr{
+    line-height: 0 !important;
+}
+th{
+    color: black;
+}
+td{
+    text-align: center;
+    line-height: 50px;
+    color:black;
+}
+th,td{
+    padding: 15px !important;
+}
+td>a{
+    position: relative;
+}
+.btn-func{
+    padding: 0 10px;
+}
+.toolTip{
+    text-decoration: none;
+    color: black;
+    padding-left: 10px;
+    
+}

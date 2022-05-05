@@ -1,0 +1,38 @@
+tr{
+    line-height: 0 !important;
+}
+th{
+    color: black;
+}
+td{
+    text-align: center;
+    line-height: 50px;
+    color:black;
+}
+th,td{
+    padding: 15px !important;
+}
+td>a{
+    position: relative;
+}
+.btn-func{
+    padding: 0 10px;
+}
+.toolTip{
+    position: absolute;
+    text-decoration: none;
+    left: 0;
+    color: black;
+    width: 70px;
+    transform: translate(-20px,30px);
+    display: none;
+}
+.btn-func:hover .toolTip{
+    display: inline
+}
+.btn-create{
+    text-decoration: none;
+    font-weight: 500;
+    background-color: #4e73df;
+    co
+}
