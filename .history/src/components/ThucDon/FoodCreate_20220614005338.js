@@ -1,6 +1,11 @@
 import "./Modal.css";
 import axios from 'axios';
 import React, { useState,useEffect} from "react";
+<<<<<<< HEAD
+import qs from 'qs';
+=======
+
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
 function FoodCreate({ open, close,props }) {
   const [TenMon, setTenMon] = useState('')
   const [GiaBan, setGiaBan] = useState('')
@@ -83,7 +88,11 @@ function FoodCreate({ open, close,props }) {
             formData.append("LastID",lastID)
     const config={
       headers:{
+<<<<<<< HEAD
+        'Content-Type':'multipart/form-data'
+=======
         'content-type':'multipart/form-data'
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
       }
     }
     axios.post('http://localhost:4000/ThucDon/Create',formData,config)
@@ -196,6 +205,10 @@ function FoodCreate({ open, close,props }) {
                   placeholder="Số lượng..."
                 ></input>
               </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
             </div>
           </div>
           <input type={'submit'} className="btn-confirm" value={"Xác nhận"} /></form>    

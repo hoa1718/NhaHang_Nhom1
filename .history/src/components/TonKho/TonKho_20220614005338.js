@@ -1,12 +1,18 @@
 import Create from "./Create.js";
 import Nhap from "./Nhap.js";
 import Xoa from "./Xoa.js";
+<<<<<<< HEAD
+import React, { useState } from "react";
+=======
 import axiosInstance from "../../config/callApi.js";
 import React, { useEffect, useState } from "react";
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
 function TonKho(props) {
   const [isOpenCreate, setOpenCreate] = useState(false);
   const [isOpenImport, setOpenImport] = useState(false);
   const [isOpenExport, setOpenExport] = useState(false);
+<<<<<<< HEAD
+=======
   const [dsNguyenLieu, setDsNguyenLieu] = useState([]);
   const [idCurrent, setIDCurrent] = useState();
   const [tenNguyenLieu, setTenNguyenLieu] = useState()
@@ -31,6 +37,7 @@ function TonKho(props) {
     }
   }
 
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
   return (
     <>
       <div style={{ position: "relative", marginBottom: "20px" }}>
@@ -42,18 +49,29 @@ function TonKho(props) {
           }}
           style={{ outline: "none", border: "none" }}
         >
+<<<<<<< HEAD
+         <i class="fa-solid fa-leaf"></i>Thêm nguyên liệu
+=======
           <i class="fa-solid fa-leaf"></i>Thêm nguyên liệu
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
         </button>
         <form className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search search-form">
           <div className="input-group">
             <input
+<<<<<<< HEAD
+              type="text"
+=======
               type={"text"}
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
               className="form-control bg-light border-0 small"
               placeholder="Search for..."
               aria-label="Search"
               aria-describedby="basic-addon2"
+<<<<<<< HEAD
+=======
               value={tenNguyenLieu}
               onChange={(e)=>setTenNguyenLieu(e.target.value)}
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
             />
             <div className="input-group-append">
               <button className="btn btn-primary" type="button">
@@ -83,6 +101,46 @@ function TonKho(props) {
                     <th>Giá nhập</th>
                     <th className="btn-wrapper" />
                   </tr>
+<<<<<<< HEAD
+                  <tr>
+                    <td>1</td>
+                    <td>Cải trắng</td>
+                    <td>Kg</td>
+                    <td>10</td>
+                    <td>10000</td>
+                    <td>
+                      <button
+                        className="btn-func"
+                        onClick={() => {
+                          setOpenImport(true)
+                        }}
+                        style={{
+                          outline: "none",
+                          border: "none",
+                          background: "none",
+                        }}
+                      >
+                        <i class="fas fa-solid fa-plus"></i>
+                        <span className="toolTip">Thêm</span>
+                      </button>
+                      |
+                      <button
+                        className="btn-func"
+                        onClick={() => {
+                          setOpenExport(true)
+                        }}
+                        style={{
+                          outline: "none",
+                          border: "none",
+                          background: "none",
+                        }}
+                      >
+                        <i class="fas fa-solid fa-minus"></i>
+                        <span className="toolTip">Chi tiết</span>
+                      </button>
+                    </td>
+                  </tr>
+=======
                   {/* --------------------------- */}
                   {dsNguyenLieu.map(item => (
                     <tr key={item.IDNguyenLieu}>
@@ -126,15 +184,22 @@ function TonKho(props) {
                     </tr>
                   ))}
 
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+      <Create open={isOpenCreate} close={() => setOpenCreate(false)}></Create>
+      <Xoa open={isOpenExport} close={() => setOpenExport(false)}></Xoa>
+      <Nhap open={isOpenImport} close={() => setOpenImport(false)}></Nhap>
+=======
       <Create open={isOpenCreate} close={() => { setOpenCreate(false); fetchNguyenLieu() }}></Create>
       <Xoa id={idCurrent} open={isOpenExport} close={() => setOpenExport(false)}></Xoa>
       <Nhap id={idCurrent} open={isOpenImport} close={() => { setOpenImport(false); fetchNguyenLieu() }}></Nhap>
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
     </>
   );
 }

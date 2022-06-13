@@ -17,12 +17,21 @@ a {
     padding: 10px 20px;
     font-size: 15px;
     border-radius:10px;
+<<<<<<< HEAD
+    margin-bottom: 2px;
+    cursor:pointer;
+}
+    .category-item div {
+        color: #4E73DF;        
+    }
+=======
     cursor:pointer;
 }
     .category-item a {
         color: #4E73DF;
     }
 
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
     .category-item:hover {
         background: #4E73DF;
     }
@@ -34,6 +43,16 @@ a {
     background:white !important;
 }
 .foods{
+<<<<<<< HEAD
+    overflow-y: auto;
+
+}
+
+.foods-item {
+    position: relative;
+    width: 25%;
+    height:15%;
+=======
     width:100%;
 }
 
@@ -52,11 +71,35 @@ tbody{
     position: relative;
     width: 25%;
     height:20%;
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
     background: white;
     padding: 10px 5px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 5px;
     text-align: center;
+<<<<<<< HEAD
+    margin-top:10px;
+    cursor: pointer;
+}
+.foods-item div{
+    height: 80%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.foods-item-img{
+    border-radius:10px;
+    height: 100px;
+    width:  100%;  
+    object-fit: cover;
+}
+.foods-item-name {
+    color: black;
+    font-size:16px;
+    height:35px;
+    overflow: hidden;
+    padding-top:10px;
+=======
     margin-right: 10px; margin-top:10px;
 }
 .foods-item-img{
@@ -70,6 +113,7 @@ tbody{
     height:35px;
     overflow: hidden;
 
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
 }
 .order-wrapper{
     width:100%;
@@ -94,7 +138,11 @@ tbody{
     width:100%;
     display:flex;
     align-items:center;
+<<<<<<< HEAD
+    gap:20px;
+=======
     gap:25px;
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
     margin-left:20px
 }
 .item-name {
@@ -132,7 +180,11 @@ tbody{
     width:25px
 }
 .order{
+<<<<<<< HEAD
+   height:50%;
+=======
    height:60%;
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
    overflow:scroll;
 }
 .purchase{
@@ -190,4 +242,56 @@ tbody{
     width: 30px !important;
     font-size: 15px !important;
     border-radius:10px;
+<<<<<<< HEAD
+}
+.addinfor{
+    margin-top: 15px;
+    margin-left: 20px;
+    position: relative;
+    width: 100%;
+}
+.addinfor input{
+    position: absolute;
+    right: 65px;
+    border: 1px solid grey;
+    padding: 1px 0 1px 5px;
+    border-radius: 5px;
+}
+.addinfor button{
+    background: none;
+    border: none;
+    color: #4E73DF;
+    position: absolute;
+    right: 75px;
+    top: 2px;
+}
+.cancel{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: black;
+    opacity: 0.5;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 3;
+}
+.btn-deleteBill{
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    position: absolute;
+    right: 12%;
+}
+.btn-deleteBill i{
+    padding-left: 5px;
+}
+.btn-deleteBill input{
+    border: none;
+    background: red;
+    color: white;
+    font-weight: 700;
+    padding: 5px;
+    border-radius: 5px;
+=======
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
 }

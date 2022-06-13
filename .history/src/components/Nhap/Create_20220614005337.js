@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+
+function FoodCreate({ open, close }) {
+  const addNguyenLieu = () => {
+    let NguyenLieu = document.querySelector("#NguyenLieu").cloneNode(true);
+    document.getElementById("Items").appendChild(NguyenLieu);
+  };
+=======
 import { useEffect, useState } from "react"
 import axiosInstance from "../../config/callApi"
 
@@ -76,6 +84,7 @@ function FoodCreate({ open, close }) {
       console.error(err);
     }
   }
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
 
   if (!open) return null;
   return (
@@ -86,15 +95,85 @@ function FoodCreate({ open, close }) {
             style={{ color: "white", background: "#4e73df", fontWeight: "700" }}
           >
             Tạo mới
+<<<<<<< HEAD
+            <button onClick={close}>X</button>
+          </h2>
+          <form method="put" action=" "><div className="wrap-input">
+=======
             <button onClick={() => { setInputList([]); close(); }}>X</button>
           </h2>
           <form method="put" action=" " onSubmit={(e) => themPhieuNhap(e)}><div className="wrap-input">
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
             <p htmlFor="NgayNhap" className="create-label">
               Ngày nhập *
             </p>
             <input
               type={"date"}
               name="NgayNhap"
+<<<<<<< HEAD
+              className="create-input"
+          
+            ></input>
+          </div>
+          <div className="wrap-input" id="Items">
+            <p
+              htmlFor="Items"
+              className="create-label"
+              style={{ fontSize: "20px" }}
+            >
+              Nguyên liệu
+              <input type={'button'}  onClick={addNguyenLieu} value={"+"} />
+            </p>
+            <div id="NguyenLieu" style={{marginLeft:"-20px"}}>
+              <div className="wrap-input">
+                <p htmlFor="NguyenLieu" className="create-label">
+                  Nguyên liệu
+                </p>
+                <input
+                  type={"text"}
+                  name="NguyenLieu"
+                  className="create-input"
+                  placeholder="Nguyên liệu..."
+                  style={{width:"250px"}}
+                  list="suggest"
+                ></input>
+                  <datalist id="suggest">
+                  <option value="Boston">
+                  </option><option value="Cambridge">
+                  </option></datalist>
+              </div>
+              <div className="wrap-input">
+                <p htmlFor="SoLuong" className="create-label">
+                  Số lượng
+                </p>
+                <input
+                  type={"text"}
+                  name="SoLuong"
+                  className="create-input"
+                  placeholder="Số lượng..."
+                  style={{width:"200px"}}
+                ></input>
+              </div>
+              <div className="wrap-input">
+                <p htmlFor="GiaNhap" className="create-label">
+                  Giá nhập
+                </p>
+                <input
+                  type={"text"}
+                  name="GiaNhap"
+                  className="create-input"
+                  placeholder="Giá nhập..."
+                  style={{width:"200px"}}
+                ></input>
+              </div>
+             <div>
+ 
+</div>
+
+            </div>
+          </div>
+          <input type={'submit'} className="btn-confirm" value={"Xác nhận"} /></form>    
+=======
               className="create-input NgayNhap"
 
             ></input>
@@ -112,12 +191,15 @@ function FoodCreate({ open, close }) {
               {inputList}
             </div>
             <input type={'submit'} className="btn-confirm" value={"Xác nhận"} /></form>
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
         </div>
       </div>
     </div>
   );
 }
 
+<<<<<<< HEAD
+=======
 function NguyenLieu({ nguyenLieu, xuLyXoa }) {
 
   return (<div id="NguyenLieu" style={{ marginLeft: "-20px" }}>
@@ -172,4 +254,5 @@ function NguyenLieu({ nguyenLieu, xuLyXoa }) {
   </div>)
 }
 
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
 export default FoodCreate;

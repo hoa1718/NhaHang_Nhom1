@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+function Detail({ open, close }) {
+=======
 import { useEffect, useState } from "react";
 import axiosInstance from "../../config/callApi";
 
@@ -20,6 +23,7 @@ function Detail({ open, close, id }) {
     }
   }
 
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
   if (!open) return null;
   return (
     <div>
@@ -36,7 +40,10 @@ function Detail({ open, close, id }) {
               Ngày nhập *
             </p>
             <input
+<<<<<<< HEAD
+=======
               value={chiTiet.NgayNhap}
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
               type={"date"}
               name="NgayNhap"
               className="create-input"
@@ -49,6 +56,53 @@ function Detail({ open, close, id }) {
                 className="create-label"
                 style={{ fontSize: "20px" }}
               >
+<<<<<<< HEAD
+                Nguyên liệu     
+              </p>
+              <div id="NguyenLieu" style={{ marginLeft: "-20px" }}>
+                <div className="wrap-input">
+                  <p htmlFor="NguyenLieu" className="create-label">
+                    Nguyên liệu
+                  </p>
+                  <input
+                    type={"text"}
+                    name="NguyenLieu"
+                    className="create-input"
+                    placeholder="Nguyên liệu..."
+                    style={{ width: "250px" }}
+                    list="suggest"
+                  ></input>
+                </div>
+                <div className="wrap-input">
+                  <p htmlFor="SoLuong" className="create-label">
+                    Số lượng
+                  </p>
+                  <input
+                    type={"text"}
+                    name="SoLuong"
+                    className="create-input"
+                    placeholder="Số lượng..."
+                    style={{ width: "200px" }}
+                  ></input>
+                </div>
+                <div className="wrap-input">
+                  <p htmlFor="GiaNhap" className="create-label">
+                    Giá nhập
+                  </p>
+                  <input
+                    type={"text"}
+                    name="GiaNhap"
+                    className="create-input"
+                    placeholder="Giá nhập..."
+                    style={{ width: "200px" }}
+                  ></input>
+                </div>
+                <div>
+
+                </div>
+
+              </div>
+=======
                 Nguyên liệu
               </p>
 
@@ -101,6 +155,7 @@ function Detail({ open, close, id }) {
                 </div>
               ))}
 
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
             </div>
             <input type={'submit'} className="btn-confirm" value={"Xác nhận"} /></form>
         </div>

@@ -1,14 +1,19 @@
 import "./ThongKe.css";
-// import {
-//   Chart as ChartJS,
-//   CategoryScale,
-//   LinearScale,
-//   PointElement,
-//   LineElement,
-//   Title,
-//   Tooltip,
-//   Legend,
-// } from 'chart.js';
+<<<<<<< HEAD
+
+function ThongKe(props) {
+
+=======
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { useEffect, useState } from "react";
 import axiosInstance from "../../config/callApi";
@@ -104,6 +109,7 @@ async function fetchDem() {
 }
 
 
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
   return (
     <><h2>Thống kê</h2><div className="row">
       <div className="col-xl-3 col-md-6 mb-4">
@@ -113,7 +119,11 @@ async function fetchDem() {
               <div className="col mr-2">
                 <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
                   Doanh thu (Hôm nay)</div>
+<<<<<<< HEAD
+                <div className="h5 mb-0 font-weight-bold text-gray-800" id="EarnToday">$40,000</div>
+=======
                 <div className="h5 mb-0 font-weight-bold text-gray-800" id="EarnToday">{ngay?.Tong}</div>
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
               </div>
               <div className="col-auto">
                 <i className="fas fa-calendar fa-2x text-gray-300" />
@@ -130,7 +140,11 @@ async function fetchDem() {
               <div className="col mr-2">
                 <div className="text-xs font-weight-bold text-success text-uppercase mb-1">
                   Doanh thu (Tháng)</div>
+<<<<<<< HEAD
+                <div className="h5 mb-0 font-weight-bold text-gray-800" id="EarnMonth">$215,000</div>
+=======
                 <div className="h5 mb-0 font-weight-bold text-gray-800" id="EarnMonth">{thang?.Tong}</div>
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
               </div>
               <div className="col-auto">
                 <i className="fas fa-dollar-sign fa-2x text-gray-300" />
@@ -168,7 +182,11 @@ async function fetchDem() {
               <div className="col mr-2">
                 <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">
                   Hoá đơn</div>
+<<<<<<< HEAD
+                <div className="h5 mb-0 font-weight-bold text-gray-800">18</div>
+=======
                 <div className="h5 mb-0 font-weight-bold text-gray-800">{dem?.tong}</div>
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
               </div>
               <div className="col-auto">
                 <i className="fas fa-clipboard-list fa-2x text-gray-300" />
@@ -185,7 +203,10 @@ async function fetchDem() {
               <h6 className="m-0 font-weight-bold text-primary">Chi tiết</h6>
             </div>
             <div className="card-body">
+<<<<<<< HEAD
+=======
             <Line options={options} data={data} />
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
             </div>
           </div>
          

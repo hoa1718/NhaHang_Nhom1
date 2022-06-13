@@ -1,0 +1,384 @@
+<<<<<<< HEAD
+import "./ThanhToan.css";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import { logDOM } from "@testing-library/react";
+function Order({ props, changeTotal }) {
+  const sumMoney = () => {
+    changeTotal();
+  };
+  let { id } = useParams();
+  const [foodsChoose, setFoodsChoose] = useState(props[0]);
+  const [total, setTotal] = useState(props[1]);
+  const [lastID, setLastID] = useState(-1);
+
+  const [phuongThuc, setPhuongThuc] = useState();
+  const [customer, setCustomer] = useState();
+  const changeMoneyFormat = (number) => {
+    return number.toLocaleString("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    });
+  };
+  const getLastID = () => {
+    axios
+      .get("http://localhost:4000/HoaDon/LastID")
+      .then((res) => {
+        setLastID(Number(res.data.result.Length));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const Increment = (e, GiaBan, i) => {
+    let targetElem = e.target.previousElementSibling;
+    let total = e.target.parentElement.nextElementSibling;
+    let number = Number(targetElem.value);
+    targetElem.value = number + 1;
+    props[0][i].quantity += 1;
+    total.innerText = changeMoneyFormat(
+      Number(targetElem.value) * Number(GiaBan)
+    );
+  };
+  const Decrease = (e, GiaBan, i) => {
+    let targetElem = e.target.nextElementSibling;
+    let total = e.target.parentElement.nextElementSibling;
+    let number = Number(targetElem.value);
+    if (number > 1) {
+      targetElem.value = number - 1;
+      props[0][i].quantity -= 1;
+      total.innerText = changeMoneyFormat(
+        Number(targetElem.value) * Number(GiaBan)
+      );
+    }
+  };
+  const changQuantity = (e, i, quantity, GiaBan) => {
+    let total = e.target.parentElement.nextElementSibling;
+    props[0][i].quantity = quantity;
+    total.innerText = changeMoneyFormat(quantity * Number(GiaBan));
+  };
+
+  const deleteFood = (e, i) => {
+    props[0].splice(i, 1);
+    e.target.parentElement.parentElement.remove();
+    sumMoney();
+  };
+  const createHoaDon = (e) => {
+    if (props[0].length === 0) {
+      alert("Không có món ăn trong bill");
+    }
+    let CTHoaDon = [];
+    for (var i = 0; i < props[0].length; i++) {
+      CTHoaDon.push({
+        IDMonAn: props[0][i].IDMon,
+        quantity: props[0][i].quantity,
+        GiaBan: props[0][i].GiaBan,
+      });
+    }
+    let formData = new FormData();
+    formData.append("ID", Number(lastID));
+    if(id !== undefined){
+      formData.append("IDBan", id);
+    }
+    else{
+      formData.append("IDBan", 0);
+    }
+    formData.append("IDKhachHang", customer);
+    formData.append("TrangThai", 1);
+    formData.append("PhuongThuc", 1);
+    formData.append("NgayLap", Date.now());
+    formData.append("Detail", JSON.stringify(CTHoaDon));
+    formData.append("DetailFirebase",JSON.stringify(foodsChoose))
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+    axios
+      .post("http://localhost:4000/HoaDon/Create", formData, config)
+      .then((res) => {
+        window.location.reload();
+        alert("Thêm thành công");
+      })
+      .catch((error) => console.log(error.response.data));
+  };
+  const deleteOrder = (id) => {
+    axios
+      .get("http://localhost:4000/ThanhToan/Delete/" + id)
+      .then((res) => {
+        window.location.reload();
+        alert("Đã xóa");
+      })
+      .catch((error) => console.log(error.response.data));
+  };
+  const findCustomer = (cardId)=>{
+    let customerName=document.querySelector("#customerName");
+    axios.get("http://localhost:4000/ThanhToan/Customer/" + cardId)
+    .then((res)=>{
+      if(res.data.firstName!== undefined){
+        customerName.innerHTML=res.data.firstName+" "+res.data.lastName;
+      }
+      else{
+        customerName.innerHTML= "Not exist";
+        setCustomer(0);
+      }
+    })
+  }
+  const saveOrder = (e) => {
+    if (props[0].length === 0) {
+      alert("Không có món ăn trong bill");
+    }
+    let formData = new FormData();
+    if (id !== undefined) {
+      formData.append("IDBan", id);
+    } else {
+      formData.append("IDBan", 0);
+    }
+    formData.append("Detail", JSON.stringify(props[0]));
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+    axios
+      .post("http://localhost:4000/ThanhToan/Save", formData, config)
+      .then((res) => {
+        alert("Luu thành công");
+      })
+      .catch((error) => console.log(error.response.data));
+  };
+  const displayFoodsChoosen = (data) => {
+    return Object.keys(data).map((item, i) => {
+      return (
+        <li key={props[0][item].IDMon} className="order-li">
+          <div className="order-item">
+            <span className="item-number">{i + 1}.</span>
+            <span style={{ width: "100px" }}>
+              <span className="item-name">{props[0][item].TenMon}</span>
+              <p className="item-price">
+                {changeMoneyFormat(props[0][item].GiaBan)}
+              </p>
+            </span>
+            <span className="item-quantity">
+              <button
+                className="change-quantity"
+                id="minus"
+                onClick={(e) => {
+                  Decrease(e, props[0][item].GiaBan, i);
+                  sumMoney();
+                }}
+              >
+                -
+              </button>
+              {props[0][item].quantity ? (
+                <input
+                  onChange={(e) => {
+                    changQuantity(e, i, e.target.value, props[0][item].GiaBan);
+                    sumMoney();
+                  }}
+                  className="quantity"
+                  type="text"
+                  name="quantity"
+                  min={1}
+                  defaultValue={props[0][item].quantity}
+                />
+              ) : (
+                props[0][item].quantity && (
+                  <input
+                    onChange={(e) => {
+                      changQuantity(
+                        e,
+                        i,
+                        e.target.value,
+                        props[0][item].GiaBan
+                      );
+                      sumMoney();
+                    }}
+                    className="quantity"
+                    type="text"
+                    name="quantity"
+                    min={1}
+                    defaultValue={props[0][item].quantity}
+                  />
+                )
+              )}
+              <button
+                className="change-quantity"
+                id="plus"
+                onClick={(e) => {
+                  Increment(e, props[0][item].GiaBan, i);
+                  sumMoney();
+                }}
+              >
+                +
+              </button>
+            </span>
+            <span className="item-total">
+              {changeMoneyFormat(props[0][item].GiaBan)}
+            </span>
+            <span>
+              <button
+                onClick={(e) => deleteFood(e, i)}
+                className="btn-clearfood"
+              >
+                X
+              </button>
+            </span>
+          </div>
+        </li>
+      );
+    });
+  };
+  useEffect(() => {
+    setFoodsChoose(props[0]);
+    getLastID();
+  });
+  useEffect(() => {
+    setTotal(props[1]);
+  });
+  return (
+    <div className="col-lg-5">
+      <div className="order-wrapper">
+        {id ? (
+          <div className="desk">
+            <Link to="/Ban">Bàn {id}</Link>
+            <i className="fas fa-solid fa-angle-right" />
+            <span className="btn-deleteBill">
+              <i class="fa-solid fa-trash"></i>
+              <Link to="/Ban">
+                <input
+                  type={"button"}
+                  onClick={(e) => {
+                    deleteOrder(id);
+                  }}
+                  value={"Hủy"}
+                >
+                </input>
+              </Link>
+            </span>
+          </div>
+        ) : (
+          <div className="desk">
+            <Link to="/Ban">Chọn bàn</Link>
+            <i className="fas fa-solid fa-angle-right" />
+          </div>
+        )}
+
+        <hr />
+        <div className="order">
+          <ul>{displayFoodsChoosen(foodsChoose)}</ul>
+        </div>
+        <div className="addinfor">
+          <label>ID Card:</label>
+          <span style={{paddingLeft:"2px",color:"green",overflow:"hidden"}} id="customerName"></span>
+          <input type="text" id="cardId" onChange={(e)=> {setCustomer(e.target.value);console.log(customer)}}></input>
+          <button onClick={ e=> findCustomer(customer)}>
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        <div className="addinfor">
+          <label>Mã Voucher:</label>
+          <input type="text" id="voucher"></input>
+          <button>
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        <div className="purchase">
+          <span>Thành tiền:</span>
+          <span id="total">{changeMoneyFormat(total)}</span>
+          <form onSubmit={(e) => createHoaDon(e)} style={{ display: "flex" }}>
+            <input
+              type={"button"}
+              onClick={(e) => saveOrder(e)}
+              className="btn-purchase"
+              id="save"
+              value={"LƯU"}
+            ></input>
+            <input
+              type={"submit"}
+              className="btn-purchase"
+              id="done"
+              value={"THANH TOÁN"}
+            ></input>
+          </form>
+        </div>
+      </div>
+    </div>
+=======
+import './ThanhToan.css'
+function Order(props) {
+  const Increment= (e) =>{
+          let targetElem = e.target.previousElementSibling;    
+          let number = Number(targetElem.value);
+          targetElem.value = number + 1;
+  };
+  const Decrease = (e) =>{
+    let targetElem = e.target.nextElementSibling;
+    let number = Number(targetElem.value);
+    if(number >1){
+      targetElem.value = number - 1;
+    }
+};
+  return (    
+   <div className="col-lg-5">
+  <div className="order-wrapper">
+    <div className="desk">
+      <a href=" ">Chọn bàn</a>
+      <i className="fas fa-solid fa-angle-right" />
+    </div>
+    <hr />
+    <div className="order">
+    <ul>
+      <li key={1}>
+      <div className="order-item">
+        <span className="item-number">1.</span>
+        <span>
+          <span className="item-name">Gà rán</span>
+          <p className="item-price">20.000đ</p>
+        </span>
+        <span className="item-quantity">
+          <button className="change-quantity" id="minus" onClick={e => Decrease(e)}>-</button>
+          <input className="quantity" type="text" name="quantity" min={1} defaultValue={1} />
+          <button className="change-quantity" id="plus" onClick={e => Increment(e)}>+</button>
+        </span>
+        <span className="item-total">40.000đ</span>
+        <span> <button className="btn-clearfood">X</button></span>
+      </div>
+      </li>
+      <li key={2}>
+      <div className="order-item">
+        <span className="item-number">1.</span>
+        <span>
+          <span className="item-name">Gà rán</span>
+          <p className="item-price">20.000đ</p>
+        </span>
+        <span className="item-quantity">
+        <button className="change-quantity" id="minus" onClick={e => Decrease(e)}>-</button>
+          <input className="quantity" type="text" name="quantity" min={1} defaultValue={1} />
+          <button className="change-quantity" id="plus" onClick={e => Increment(e)}>+</button>
+        </span>
+        <span className="item-total">40.000đ</span>
+        <span> <button className="btn-clearfood">X</button></span>
+      </div></li>
+    </ul>
+      
+      
+    </div>
+    <div className="purchase">
+      <span>Thành tiền:</span>
+      <span id="total">80.000đ</span>
+      <div style={{display: 'flex'}}>
+        <button className="btn-purchase" id="save">LƯU</button>
+        <button className="btn-purchase" id="done">THANH TOÁN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
+  );
+}
+
+export default Order;

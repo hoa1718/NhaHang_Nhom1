@@ -1,12 +1,18 @@
 import Create from "./Create";
 import Detail from "./Detail";
 import Edit from "./Edit";
+<<<<<<< HEAD
+import React, { useState } from "react";
+=======
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../../config/callApi";
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
 function HoaDon(props) {
   const [isOpenCreate, setOpenCreate] = useState(false);
   const [isOpenDetail, setOpenDetail] = useState(false);
   const [isOpenEdit, setOpenEdit] = useState(false);
+<<<<<<< HEAD
+=======
   const [nhapKho, setNhapKho] = useState([])
   const [idCurrent, setIdCurrent] = useState()
   const [search, setSearch] = useState()
@@ -52,6 +58,7 @@ function HoaDon(props) {
     }
   }
 
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
   return (
     <>
       <div style={{ position: "relative", marginBottom: "20px" }}>
@@ -67,6 +74,13 @@ function HoaDon(props) {
         <form className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search search-form">
           <div className="input-group">
             <input
+<<<<<<< HEAD
+              type="text"
+              className="form-control bg-light border-0 small"
+              placeholder="Search for..."
+              aria-label="Search"
+              aria-describedby="basic-addon2"
+=======
               type="date"
               className="form-control bg-light border-0 small"
               placeholder="Tim kiem"
@@ -74,6 +88,7 @@ function HoaDon(props) {
               aria-describedby="basic-addon2"
               value={search}
               onChange={(e)=>setSearch(e.target.value)}
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
             />
             <div className="input-group-append">
               <button className="btn btn-primary" type="button">
@@ -98,6 +113,59 @@ function HoaDon(props) {
                   <tr>
                     <th>Mã phiếu</th>
                     <th>Ngày nhập</th>
+<<<<<<< HEAD
+                    <th>Số lượng</th>
+                    <th className="btn-wrapper" />
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>01/01/2001</td>
+                    <td>50</td>
+                    <td>
+                      <button
+                        className="btn-func"
+                        onClick={() => {
+                          setOpenEdit(true);
+                        }}
+                        style={{
+                          outline: "none",
+                          border: "none",
+                          background: "none",
+                        }}
+                      >
+                        <i className="fas fa-solid fa-pen-to-square" />
+                        <span className="toolTip">Cập nhật</span>
+                      </button>
+                      |
+                      <button
+                        className="btn-func"
+                        onClick={() => {
+                          setOpenDetail(true);
+                        }}
+                        style={{
+                          outline: "none",
+                          border: "none",
+                          background: "none",
+                        }}
+                      >
+                        <i className="fas fa-solid fa-info" />
+                        <span className="toolTip">Chi tiết</span>
+                      </button>
+                      |
+                      <button
+                        className="btn-func"
+                        style={{
+                          outline: "none",
+                          border: "none",
+                          background: "none",
+                        }}
+                      >
+                        <i className="fa-solid fa-trash" />
+                        <span className="toolTip">Xoá</span>
+                      </button>
+                    </td>
+                  </tr>
+=======
 
                     <th className="btn-wrapper" />
                   </tr>
@@ -154,15 +222,22 @@ function HoaDon(props) {
                     </tr>
                   ))}
 
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+      <Create open={isOpenCreate} close={() => setOpenCreate(false)}></Create>
+      <Edit open={isOpenEdit} close={() => setOpenEdit(false)}></Edit>
+      <Detail open={isOpenDetail} close={() => setOpenDetail(false)}></Detail>
+=======
       <Create open={isOpenCreate} close={() => { setOpenCreate(false); fetchNhapKho() }}></Create>
       <Edit id={idCurrent} open={isOpenEdit} close={() => setOpenEdit(false)}></Edit>
       <Detail id={idCurrent} open={isOpenDetail} close={() => setOpenDetail(false)}></Detail>
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
     </>
   );
 }

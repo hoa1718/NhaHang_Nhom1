@@ -1,5 +1,11 @@
 import Edit from "./Edit";
 import Create from "./Create";
+<<<<<<< HEAD
+import React, { useState } from "react";
+function HoaDon(props) {
+  const [isOpenCreate, setOpenCreate] = useState(false);
+  const [isOpenEdit, setOpenEdit] = useState(false);
+=======
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../../config/callApi";
 
@@ -55,6 +61,7 @@ function HoaDon(props) {
   }
 
 
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
   return (
     <>
       <div style={{ position: "relative", marginBottom: "20px" }}>
@@ -75,8 +82,11 @@ function HoaDon(props) {
               placeholder="Tìm theo tên "
               aria-label="Search"
               aria-describedby="basic-addon2"
+<<<<<<< HEAD
+=======
               value={ten}
               onChange={(e)=>setTen(e.target.value)}
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
             />
             <div className="input-group-append">
               <button className="btn btn-primary" type="button">
@@ -93,8 +103,11 @@ function HoaDon(props) {
               placeholder="Tìm theo ngày"
               aria-label="Search"
               aria-describedby="basic-addon2"
+<<<<<<< HEAD
+=======
               value={date}
               onChange={(e)=>setDate(e.target.value)}
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
             />
             <div className="input-group-append">
               <button className="btn btn-primary" type="button">
@@ -123,6 +136,55 @@ function HoaDon(props) {
                     <th>Số người</th>
                     <th className="btn-wrapper" />
                   </tr>
+<<<<<<< HEAD
+                  <tr className="result">
+                    <td>Nguyễn Văn A</td>
+                    <td>17/6/2021</td>
+                    <td>18:00</td>
+                    <td>4</td>
+                    <td  style={{Width:"250px"}}>
+                      <button
+                        className="btn-func"
+                        onClick={() => {
+                          setOpenEdit(true);
+                        }}
+                        style={{
+                          outline: "none",
+                          border: "none",
+                          background: "none",
+                        }}
+                      >
+                      
+                        <i className="fas fa-solid fa-pen-to-square" />
+                        <span className="toolTip">Cập nhật</span>
+                      </button>
+                      |
+                      <button
+                        className="btn-func"
+                        style={{
+                          outline: "none",
+                          border: "none",
+                          background: "none",
+                        }}
+                      >
+                        <i class="fas fa-solid fa-pizza-slice"></i>
+                        <span className="toolTip">Order</span>
+                      </button>
+                      |
+                      <button
+                        className="btn-func"
+                        style={{
+                          outline: "none",
+                          border: "none",
+                          background: "none",
+                        }}
+                      >
+                        <i className="fa-solid fa-trash" />
+                        <span className="toolTip">Xoá</span>
+                      </button>
+                    </td>
+                  </tr>
+=======
                   {datBan.map(item => (
                     <tr key={item.IDPhieuDat} className="result">
                       <td>{item.TenKhachHang}</td>
@@ -175,14 +237,20 @@ function HoaDon(props) {
                     </tr>
                   ))}
 
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
+      <Create open={isOpenCreate} close={() => setOpenCreate(false)}></Create>
+      <Edit open={isOpenEdit} close={() => setOpenEdit(false)}></Edit>
+=======
       <Create open={isOpenCreate} close={() => { setOpenCreate(false); fetchDatBan() }}></Create>
       <Edit data={id} open={isOpenEdit} close={() => { setOpenEdit(false); fetchDatBan() }}></Edit>
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
     </>
   );
 }

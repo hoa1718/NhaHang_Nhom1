@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+
+function Create({ open, close }) {
+=======
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -37,6 +41,7 @@ function Create({ open, close }) {
     }
   }
 
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
   if (!open) return null;
   return (
     <div>
@@ -48,6 +53,52 @@ function Create({ open, close }) {
             Tạo mới
             <button onClick={close}>X</button>
           </h2>
+<<<<<<< HEAD
+          <form method="put" action=" "><div className="wrap-input">
+            <p htmlFor="TenNguoiDat" className="create-label">
+              Tên người đặt *
+            </p>
+            <input
+              type={"text"}
+              name="TenNguoiDat"
+              className="create-input"
+              placeholder="Hãy nhập tên người đặt..."
+            ></input>
+          </div>
+          <div className="wrap-input">
+            <p htmlFor="NgayDat" className="create-label">
+              Ngày đặt *
+            </p>
+            <input
+              type={"date"}
+              name="NgayDat"
+              className="create-input"
+            ></input>
+          </div>
+          <div className="wrap-input">
+            <p htmlFor="KhungGio" className="create-label">
+              Khung giờ *
+            </p>
+            <input
+              type={"time"}
+              name="KhungGio"
+              className="create-input"
+              placeholder="Hãy nhập giá tiền..."
+            ></input>
+          </div>
+          <div className="wrap-input">
+            <p htmlFor="SoNguoi" className="create-label">
+              Số người
+            </p>
+            <input
+              type={"text"}
+              name="SoNguoi"
+              className="create-input"
+              placeholder="Hãy nhập số người..."
+            ></input>
+          </div>
+          <input type={'submit'} className="btn-confirm" value={"Xác nhận"} /></form>    
+=======
           <form method="put" action=" " onSubmit={handleSubmit(onSubmit)}>
             <div className="wrap-input">
               <p htmlFor="TenNguoiDat" className="create-label">
@@ -96,6 +147,7 @@ function Create({ open, close }) {
               ></input>
             </div>
             <input type={'submit'} className="btn-confirm" value={"Xác nhận"} /></form>
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
         </div>
       </div>
     </div>

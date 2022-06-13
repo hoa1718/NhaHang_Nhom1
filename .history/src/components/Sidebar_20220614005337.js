@@ -5,6 +5,10 @@ import ThongKePage from "../pages/ThongKe";
 import DatBanPage from "../pages/DatBan";
 import TonKhoPage from "../pages/TonKho";
 import NhapPage from "../pages/Nhap";
+<<<<<<< HEAD
+import BanPage from "../pages/Ban";
+=======
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
 import { Routes, Route,Link } from "react-router-dom";
 
 function Sidebar(props) {
@@ -74,7 +78,10 @@ function Sidebar(props) {
             data-target="#collapsePages"
             aria-expanded="true"
             aria-controls="collapsePages"
+<<<<<<< HEAD
+=======
             // onClick={toggleSidebar}
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
           >
             <i className="fas fa-solid fa-box" />
             <span>Kho</span>
@@ -112,6 +119,11 @@ function Sidebar(props) {
         <Route path="/DatBan" element={<DatBanPage />} ></Route>
         <Route path="/TonKho" element={<TonKhoPage />} ></Route>
         <Route path="/NhapKho" element={<NhapPage />} ></Route>
+<<<<<<< HEAD
+        <Route path="/Ban/*" element={<BanPage />} ></Route>
+        <Route path="/Ban/IDBan=:id" element={<ThanhToanPage />} ></Route>
+=======
+>>>>>>> b7ec448ecad55dc486ebd8bec01289fd610bbb08
     </Routes>
     </div>
     
