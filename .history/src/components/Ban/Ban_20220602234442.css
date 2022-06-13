@@ -1,0 +1,9 @@
+.desk{
+    position: relative;
+}
+.desk img{
+    margin: auto 0;
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: cover;
+}

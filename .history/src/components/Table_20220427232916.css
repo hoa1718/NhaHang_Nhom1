@@ -1,0 +1,12 @@
+tr{
+    line-height: 0 !important;
+}
+th{
+    color: black;
+}
+td{
+    text-align: center;
+}
+th,td{
+    padding: 15px !important;
+}

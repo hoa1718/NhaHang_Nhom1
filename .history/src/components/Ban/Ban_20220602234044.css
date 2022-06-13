@@ -1,0 +1,9 @@
+.desk{
+    width: 20%;
+    height: 200px;
+}
+.desk img{
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
