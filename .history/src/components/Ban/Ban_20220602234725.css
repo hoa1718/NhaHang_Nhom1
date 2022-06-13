@@ -1,0 +1,9 @@
+.dining{
+    position: relative;
+}
+.dining img{
+    margin: 0 auto;
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: cover;
+}

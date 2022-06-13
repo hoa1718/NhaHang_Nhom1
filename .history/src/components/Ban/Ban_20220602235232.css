@@ -1,0 +1,12 @@
+.dining{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    fl
+}
+.dining img{
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: cover;
+}

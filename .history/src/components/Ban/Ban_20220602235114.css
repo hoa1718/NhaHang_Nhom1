@@ -1,0 +1,11 @@
+.dining{
+    position: relative;
+}
+.dining img{
+
+    left: 50%;
+    transform: translateX(-50%);    position: absolute;
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: cover;
+}
